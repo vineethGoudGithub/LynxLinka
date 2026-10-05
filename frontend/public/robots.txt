@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lynxlink.vercel.app/sitemap.xml

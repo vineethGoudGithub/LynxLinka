@@ -1,0 +1,61 @@
+spring:
+  application:
+    name: LynxLink
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://ep-sweet-dream-b5w1ctab-pooler.c-7.us-east-2.aws.neon.tech/neondb?sslmode=require}
+    username: ${DB_USERNAME:neondb_owner}
+    password: ${DB_PASSWORD:npg_GY0Xaid3MZWm}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        format-sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    validate-on-migrate: true
+    clean-disabled: true # IMPORTANT (prevent accidental DB wipe)
+
+  # Redis Configuration
+  cache:
+    type: redis
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      timeout: 2000ms
+
+# Cache Settings
+cache:
+  url:
+    ttl: 86400 # 24 hours in seconds
+
+jwt:
+  secret: ${JWT_SECRET:your-256-bit-secret-key-change-this-in-production-minimum-32-characters-required}
+  expiration: 86400000
+
+app:
+  base-url: ${APP_BASE_URL:http://localhost:8080}
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:5173,http://localhost:3000,https://lynxlink.vercel.app}
+
+# Rate Limiting Configuration
+rate-limit:
+  url-creation:
+    max-requests: 10 # Maximum URLs a user can create
+    window-seconds: 3600 # Per hour
+  redirect:
+    max-requests: 100 # Maximum redirects per IP
+    window-seconds: 60 # Per minute
+  api:
+    max-requests: 1000 # Maximum API calls per user
+    window-seconds: 3600 # Per hour

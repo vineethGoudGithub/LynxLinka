@@ -1,0 +1,98 @@
+############################
+# Environment / Secrets — never commit
+############################
+.env
+.env.local
+.env.*.local
+.env.*
+backend/.env
+backend/.env.*
+frontend/.env
+frontend/.env.local
+frontend/.env.*
+
+############################
+# Docker & deployment
+############################
+frontend/Dockerfile
+frontend/nginx/
+CONTAINERIZATION_AND_CLOUD_DEPLOYMENT_GUIDE.md
+**/.dockerignore
+
+# Root .env (contains local secrets)
+.env
+
+############################
+# Spring Boot production config
+############################
+
+############################
+# IDEs / Editors
+############################
+.idea/
+.vscode/
+.eclipse/
+.sts4-cache
+backend/.sts4-cache
+backend/.apt_generated
+*.iml
+*.iws
+*.ipr
+
+############################
+# Java / Spring Boot (backend)
+############################
+backend/HELP.md
+backend/target/
+backend/.classpath
+backend/.project
+backend/.factorypath
+backend/.springBeans
+backend/docs/*
+docs/*
+backend/build/
+backend/.gradle/
+backend/nbproject/
+backend/nbbuild/
+backend/nbdist/
+backend/.nb-gradle/
+backend/src/main/resources/application-local.yml
+backend/src/main/resources/application-*.local.yml
+############################
+# Maven
+############################
+.mvn/wrapper/maven-wrapper.jar
+backend/.mvn/wrapper/maven-wrapper.jar
+
+############################
+# Node / React (frontend)
+############################
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/build/
+frontend/.cache/
+frontend/coverage/
+
+############################
+# Logs
+############################
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+############################
+# OS / Editor junk
+############################
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
